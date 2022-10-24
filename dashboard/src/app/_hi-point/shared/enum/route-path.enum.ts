@@ -1,0 +1,15 @@
+export enum RoutePathEnum {
+ root = "hi-point",
+ home = "hi-point/dashboard",
+ accountManagement = "hi-point/account-management",
+ controlSetting = "hi-point/control-setting",
+ historyData = "hi-point/history-data",
+ imageData = "hi-point/image-data",
+ liveStreamingConfig = "hi-point/live-streaming/config",
+ help = "hi-point/help",
+ groupSetting = "hi-point/group-setting",
+ dev = "hi-point/dev",
+ agent = "hi-point/agent",
+ devSvg = "hi-point/dev/svg",
+ errReport = "hi-point/err-report",
+}

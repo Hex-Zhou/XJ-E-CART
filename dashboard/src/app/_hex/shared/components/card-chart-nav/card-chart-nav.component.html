@@ -1,0 +1,29 @@
+<ul class="nav">
+ <li class="nav-item">
+  <a
+   [class.active]="currentChartTime === 24"
+   (click)="timeClick(24)"
+   class="nav-link btn btn-sm btn-color-muted fw-bolder px-4 me-1 btn-active-light-primary fs-5">
+   24小時
+  </a>
+ </li>
+ <li class="nav-item">
+  <a
+   [class.active]="currentChartTime === 3"
+   (click)="timeClick(3)"
+   class="nav-link btn btn-sm btn-color-muted fw-bolder px-4 me-1 btn-active-light-primary fs-5">
+   近3天
+  </a>
+ </li>
+ <li class="nav-item">
+  <a
+   [class.active]="currentChartTime === 7"
+   (click)="timeClick(7)"
+   class="nav-link btn btn-sm btn-color-muted fw-bolder px-4 me-1 btn-active-light-primary fs-5">
+   近7天
+  </a>
+ </li>
+</ul>
+<div *ngIf="isDownload" (click)="downloadClick()">
+ <span [inlineSVG]="SVG.cloud1" class="svg-icon svg-icon-2x fill-danger pointer"></span>
+</div>

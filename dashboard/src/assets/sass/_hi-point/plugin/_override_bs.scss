@@ -1,0 +1,12 @@
+@import "/src/assets/sass/style.scss";
+
+.hex_buttons {
+  @extend .d-flex;
+  @extend .gap-3;
+  > button {
+    @extend .btn;
+    @extend .text-primary;
+    @extend .fs-5;
+    @extend .fw-bolder;
+  }
+}

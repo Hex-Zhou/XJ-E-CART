@@ -1,0 +1,16 @@
+@import "/src/assets/sass/_hi-point/rwd";
+.circle-icon {
+  transition: all 0.3s;
+  transform: rotate(180deg);
+  cursor: pointer;
+  &.expanded {
+    transform: rotate(0deg);
+  }
+}
+.inner-panel {
+  transition: all 0.5s;
+  max-height: 0px;
+  &.expanded {
+    max-height: 1500px;
+  }
+}

@@ -1,0 +1,26 @@
+<div class="panel d-flex flex-column p-md-10 p-3 gap-3">
+ <div class="text-center fs-2x fw-bolder">設備設定</div>
+ <div body class="d-flex gap-5 flex-column flex-md-row">
+  <input type="text" class="form-control form-control min-w-150px" placeholder="請輸入關鍵字" />
+  <button hexBtnStyle feat="modalFooter" color="primary" class="flex-grow-1">查詢</button>
+  <button hexBtnStyle feat="modalFooter" color="death" class="flex-grow-1">清除</button>
+ </div>
+ <div class="d-flex gap-3">
+  <span class="badge text-dark bg-gray-300 fs-3 fw-bolder btn-rounded py-2 px-4 pointer">全部</span>
+  <span class="badge text-secondary fs-3 fw-bolder btn-rounded py-2 px-4 pointer">未設定</span>
+  <span class="badge text-secondary fs-3 fw-bolder btn-rounded py-2 px-4 pointer">已設定</span>
+ </div>
+ <div>
+  <app-hex-gray-view-list>
+   <div hexGrayViewItem feat="row" row *ngFor="let item of data">
+    <div hexGrayViewItem feat="title" [val]="item.title"></div>
+    <div hexGrayViewItem>{{ item.agent }}</div>
+    <input hexGrayViewItem feat="check" type="checkbox" [checked]="item.check" />
+   </div>
+  </app-hex-gray-view-list>
+ </div>
+ <div class="text-center">
+  <button (click)="closeModal()" hexBtnStyle feat="modalFooter" color="death">關閉</button>
+  <button hexBtnStyle feat="modalFooter" color="success" class="ms-3">儲存</button>
+ </div>
+</div>

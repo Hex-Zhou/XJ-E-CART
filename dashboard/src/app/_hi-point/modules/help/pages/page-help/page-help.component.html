@@ -1,0 +1,12 @@
+<div class="panel d-flex gap-5 flex-column">
+  <ng-container *ngFor="let item of dataList">
+    <app-skin-card-standard [cardTitle]="item.title" extraBodyCSS="p-0" extraCardCSS="pb-3 w-100">
+      <div toolbar>
+        <button class="btn btn-success fajc">
+          <span class="svg-icon svg-icon-2x" [inlineSVG]="item.icon"></span>
+          <span>{{ item.label }}</span>
+        </button>
+      </div>
+    </app-skin-card-standard>
+  </ng-container>
+</div>

@@ -1,0 +1,18 @@
+<div class="panel d-flex flex-column p-md-10 p-3 gap-3">
+ <div class="text-center fs-2x fw-bolder">設備設定</div>
+ <ng-container *ngTemplateOutlet="inputTemp; context: { title: '代理商編號' }"></ng-container>
+ <ng-container *ngTemplateOutlet="inputTemp; context: { title: '代理商名稱' }"></ng-container>
+ <ng-container *ngTemplateOutlet="inputTemp; context: { title: '聯絡人' }"></ng-container>
+ <ng-container *ngTemplateOutlet="inputTemp; context: { title: '聯絡電話' }"></ng-container>
+ <ng-container *ngTemplateOutlet="inputTemp; context: { title: '聯絡信箱' }"></ng-container>
+ <div class="text-center mt-3">
+  <button (click)="close()" hexBtnStyle feat="modalFooter" color="death">關閉</button>
+  <button hexBtnStyle feat="modalFooter" color="success" class="ms-3">新增</button>
+ </div>
+</div>
+<ng-template #inputTemp let-title="title">
+ <div class="form-group">
+  <span class="fs-3 text-primary fw-bolder form-label mb-3">{{ title }}</span>
+  <input type="text" class="form-control" />
+ </div>
+</ng-template>

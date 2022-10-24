@@ -1,0 +1,33 @@
+<div
+  id="asideAddList"
+  cdkDropList
+  #addListElem="cdkDropList"
+  [cdkDropListData]="defLabelList"
+  (cdkDropListDropped)="drop($event)"
+  [cdkDropListConnectedTo]="[customListElem]"
+  class="pointer mt-3 min-h-40px">
+  <div (click)="collapse('addBar')" class="bg-dark text-light fs-4 p-2">加入區塊</div>
+  <ng-container *ngFor="let item of defLabelList">
+    <div cdkDrag [collapse]="isCollapse.addBar" class="dragging-item border border-1 fs-5 p-2">
+      {{ item.title }}
+    </div>
+  </ng-container>
+</div>
+<div
+  id="asideCustomList"
+  cdkDropList
+  #customListElem="cdkDropList"
+  [cdkDropListData]="nowLabelList"
+  (cdkDropListDropped)="drop($event)"
+  [cdkDropListConnectedTo]="[addListElem]"
+  class="pointer mt-0 min-h-40px">
+  <div (click)="collapse('customBar')" class="bg-dark text-light fs-4 p-2">你的區塊排序</div>
+  <ng-container *ngFor="let item of nowLabelList; let i = index">
+    <div cdkDrag [collapse]="isCollapse.customBar" class="dragging-item border border-1 fs-5 p-2">
+      <div class="fajb">
+        <span>{{ item.title }}</span>
+        <i (click)="openModal(i)" class="fas fa-file-pen fs-4 ms-auto"></i>
+      </div>
+    </div>
+  </ng-container>
+</div>

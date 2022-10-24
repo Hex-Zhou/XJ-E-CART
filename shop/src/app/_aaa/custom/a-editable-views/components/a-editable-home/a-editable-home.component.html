@@ -1,0 +1,50 @@
+<div class="mt-5">
+  <ng-container *ngFor="let block of nowEntity">
+    <ng-container *ngIf="block.type === 'slideshow'">
+      <app-block-slideshow></app-block-slideshow>
+    </ng-container>
+    <ng-container *ngIf="block.type === 'features'">
+      <app-block-features [layout]="block.options?.layout || 'boxed'"></app-block-features>
+    </ng-container>
+    <ng-container *ngIf="block.type === 'carousel'">
+      <div class="mb-5">
+        <app-block-products-carousel
+          [header]="block.options?.header || '標題'"
+          [layout]="block.options?.layout || 'grid-5'"
+          [rows]="block.options?.rows || 1"
+          [loading]="featuredProducts.loading"
+          [products]="featuredProducts.products"
+          [groups]="featuredProducts.groups"
+          (groupChange)="groupChange(featuredProducts, $event)"></app-block-products-carousel>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="block.type === 'brands'">
+      <app-block-brands [brands]="(brands$ | async) || []"></app-block-brands>
+    </ng-container>
+    <ng-container *ngIf="block.type === 'posts'">
+      <app-block-posts
+        [header]="block.options?.header || '新聞'"
+        [layout]="block.options?.layout || 'grid-nl'"
+        [posts]="posts"></app-block-posts>
+    </ng-container>
+    <ng-container *ngIf="block.type === 'categories'">
+      <app-block-categories
+        [header]="block.options?.header || '熱門分類'"
+        [layout]="block.options?.layout || 'compact'"
+        [categories]="(popularCategories$ | async) || []"></app-block-categories>
+    </ng-container>
+    <ng-container *ngIf="block.type === 'prodColumns'">
+      <app-block-product-columns>
+        <app-block-product-columns-item
+          header="Top Rated Products"
+          [products]="(columnTopRated$ | async) || []"></app-block-product-columns-item>
+        <app-block-product-columns-item
+          header="Special Offers"
+          [products]="(columnSpecialOffers$ | async) || []"></app-block-product-columns-item>
+        <app-block-product-columns-item
+          header="Bestsellers"
+          [products]="(columnBestsellers$ | async) || []"></app-block-product-columns-item>
+      </app-block-product-columns>
+    </ng-container>
+  </ng-container>
+</div>

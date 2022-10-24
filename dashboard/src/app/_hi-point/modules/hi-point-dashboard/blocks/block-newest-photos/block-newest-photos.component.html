@@ -1,0 +1,20 @@
+<app-skin-card-standard
+  cardTitle="最新影像"
+  cardSubtitle="更新時間：2022-01-25 13:00:21"
+  extraBodyCSS="card-scroll _max-h-content-list d-flex gap-3 flex-column"
+  extraCardCSS="h-100">
+  <!-- next & prev Btn -->
+  <div toolbar class="d-flex gap-2">
+    <span (click)="prevPic()" class="bullet bullet-dot h-10px w-10px pointer"></span>
+    <span class="bullet bg-success h-10px w-30px pointer"></span>
+    <span (click)="nextPic()" class="bullet bullet-dot h-10px w-10px pointer"></span>
+  </div>
+  <!-- carousel -->
+  <div body id="newest-photos-swiper-panel">
+    <swiper #swiper [slidesPerView]="'auto'" [spaceBetween]="60">
+      <ng-container *ngFor="let item of [1, 2, 3]">
+        <ng-template swiperSlide><img class="h-300px radius-1rem" [src]="imgList.demoLanHua1" alt="" /></ng-template>
+      </ng-container>
+    </swiper>
+  </div>
+</app-skin-card-standard>

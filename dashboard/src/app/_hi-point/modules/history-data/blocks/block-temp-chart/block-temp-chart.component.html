@@ -1,0 +1,43 @@
+<app-skin-card-standard cardTitle="溫濕度趨勢變化" extraToolBarCSS="flex-grow-1" *ngIf="isDone">
+ <div toolbar class="fajb w-100 flex-wrap">
+  <div class="d-flex gap-3">
+   <span hexBtnStyle feat="chartBadge">溫度</span>
+   <span hexBtnStyle feat="chartBadge">濕度</span>
+  </div>
+  <app-card-chart-nav [isDownload]="true"></app-card-chart-nav>
+ </div>
+ <div body>
+  <div class="h-350px">
+   <apx-chart
+    [series]="chartOptions1.series!"
+    [chart]="chartOptions1.chart!"
+    [xaxis]="chartOptions1.xaxis!"
+    [yaxis]="chartOptions1.yaxis!"
+    [dataLabels]="chartOptions1.dataLabels!"
+    [stroke]="chartOptions1.stroke!"
+    [legend]="chartOptions1.legend!"
+    [fill]="chartOptions1.fill!"
+    [states]="chartOptions1.states!"
+    [tooltip]="chartOptions1.tooltip!"
+    [colors]="chartOptions1.colors!"
+    [markers]="chartOptions1.markers!"
+    [plotOptions]="chartOptions1.plotOptions!"></apx-chart>
+  </div>
+  <div class="h-150px">
+   <apx-chart
+    [series]="chartOptions2.series!"
+    [chart]="chartOptions2.chart!"
+    [xaxis]="chartOptions2.xaxis!"
+    [yaxis]="chartOptions2.yaxis!"
+    [dataLabels]="chartOptions2.dataLabels!"
+    [stroke]="chartOptions2.stroke!"
+    [legend]="chartOptions2.legend!"
+    [fill]="chartOptions2.fill!"
+    [states]="chartOptions2.states!"
+    [tooltip]="chartOptions2.tooltip!"
+    [colors]="chartOptions2.colors!"
+    [markers]="chartOptions2.markers!"
+    [plotOptions]="chartOptions2.plotOptions!"></apx-chart>
+  </div>
+ </div>
+</app-skin-card-standard>

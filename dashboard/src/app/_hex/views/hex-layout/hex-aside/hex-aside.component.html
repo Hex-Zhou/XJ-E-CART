@@ -1,0 +1,74 @@
+<!--
+分成四種類型
+根部有小孩 根部沒小孩 有爸媽沒小孩 有爸媽有小孩
+根部屬性 有大icon
+有小孩屬性 會有箭頭跟子選單
+-->
+<div class="panel">
+	<ng-container *ngFor="let r of routeList">
+		<ng-container [ngTemplateOutlet]="route" [ngTemplateOutletContext]="{ r: r }"></ng-container>
+	</ng-container>
+</div>
+<!-- 自製 巢狀路由 -->
+<ng-template #route let-r="r">
+	<!-- a.根部 -->
+	<ng-container *ngIf="!r.hidden">
+		<ng-container *ngIf="r.root">
+			<!-- a.無子 -->
+			<ng-container *ngIf="!r.children">
+				<div class="menu-item">
+					<a class="menu-link without-sub" [routerLink]="r.link" routerLinkActive="active">
+						<span *ngIf="r.icon" class="menu-icon">
+							<span class="svg-icon svg-icon-2x" [inlineSVG]="r.icon"></span>
+						</span>
+						<span class="menu-title">{{ r.title }}</span>
+					</a>
+				</div>
+			</ng-container>
+			<!-- b.有子 -->
+			<ng-container *ngIf="r.children">
+				<div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+					<span class="menu-link">
+						<span *ngIf="r.icon" class="menu-icon">
+							<span class="svg-icon svg-icon-2x" [inlineSVG]="r.icon"></span>
+						</span>
+						<span class="menu-title">{{ r.title }}</span>
+						<span class="menu-arrow"></span>
+					</span>
+					<div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+						<ng-container *ngFor="let child of r.children">
+							<ng-container [ngTemplateOutlet]="route" [ngTemplateOutletContext]="{ r: child }"></ng-container>
+						</ng-container>
+					</div>
+				</div>
+			</ng-container>
+		</ng-container>
+		<!-- b.非根部 -->
+		<ng-container *ngIf="!r.root">
+			<!-- a.無子 -->
+			<ng-container *ngIf="!r.children">
+				<div class="menu-item">
+					<a class="menu-link without-sub" routerLinkActive="active" [routerLink]="r.link">
+						<span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+						<span class="menu-title">{{ r.title }}</span>
+					</a>
+				</div>
+			</ng-container>
+			<!-- b.有子 -->
+			<ng-container *ngIf="r.children">
+				<div class="menu-item menu-accordion" routerLinkActive="here show" data-kt-menu-trigger="click">
+					<span class="menu-link">
+						<span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+						<span class="menu-title">{{ r.title }}</span>
+						<span class="menu-arrow"></span>
+					</span>
+					<div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+						<ng-container *ngFor="let child of r.children">
+							<ng-container [ngTemplateOutlet]="route" [ngTemplateOutletContext]="{ r: child }"></ng-container>
+						</ng-container>
+					</div>
+				</div>
+			</ng-container>
+		</ng-container>
+	</ng-container>
+</ng-template>

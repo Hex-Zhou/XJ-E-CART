@@ -1,0 +1,17 @@
+.side-menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #3377ff;
+  //
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  //
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  //
+  cursor: pointer;
+}

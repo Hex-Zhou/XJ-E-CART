@@ -1,0 +1,16 @@
+<app-skin-card-standard cardTitle="{{ cardTitle }}" extraToolBarCSS="flex-nowrap">
+ <ng-container toolbar>
+  <ng-content select="[toolbar]"></ng-content>
+  <div (click)="toggleIsExpand()" class="circle-icon" [class.expanded]="isExpand">
+   <span [inlineSVG]="SVG.circleArrow" class="svg-icon svg-icon-1"></span>
+  </div>
+ </ng-container>
+ <ng-container body>
+  <div class="inner-panel overflow-hidden {{ bodyClass }}" [class.expanded]="isExpand">
+   <ng-content select="[body]"></ng-content>
+  </div>
+  <div class="inner-panel overflow-hidden {{ collapseBodyClass }}" [class.expanded]="!isExpand">
+   <ng-content select="[collapse-body]"></ng-content>
+  </div>
+ </ng-container>
+</app-skin-card-standard>

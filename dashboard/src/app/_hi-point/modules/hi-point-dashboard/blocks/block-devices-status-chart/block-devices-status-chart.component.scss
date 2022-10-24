@@ -1,0 +1,7 @@
+@import "/src/assets/sass/_hi-point/rwd";
+#dashboard-donut-chart-device {
+  height: 350px;
+  @include sm {
+    height: 250px;
+  }
+}

@@ -1,0 +1,28 @@
+@import "/src/assets/sass/_hi-point/rwd";
+.panel {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 1rem;
+  > div {
+    display: grid;
+    overflow: auto;
+    gap: 1rem;
+  }
+  .row1 {
+    grid-template-columns: 1fr;
+  }
+  .row2 {
+    grid-template-columns: 1fr;
+  }
+  .row3 {
+    grid-template-columns: 1fr;
+  }
+  .row4 {
+    grid-template-columns: 500px auto;
+    @include lg {
+      grid-template-columns: 100%;
+    }
+  }
+}

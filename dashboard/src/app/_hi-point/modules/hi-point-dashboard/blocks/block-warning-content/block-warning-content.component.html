@@ -1,0 +1,45 @@
+<ng-container *ngIf="mode === 'card'">
+  <app-skin-card-standard cardTitle="警報內容" extraBodyCSS="card-scroll max-h-400px overflow-auto">
+    <!-- <div toolbar class="bg-shitty bg-active-shitty hoverable text-white btn btn-sm" (click)="openExceptionModal()"> <span [inlineSVG]="bp.getDuoTune('general', 45)" class="svg-icon svg-icon-3 svg-icon-light"></span> 異常對策 </div> -->
+    <div toolbar>
+      <nz-select nzShowSearch (nzOpenChange)="selectException()" [(ngModel)]="exceptionSelected">
+        <nz-option nzValue="none" nzLabel="全部"></nz-option>
+        <ng-container *ngFor="let item of exceptionList">
+          <nz-option [nzValue]="item" [nzLabel]="item"></nz-option>
+        </ng-container>
+      </nz-select>
+    </div>
+    <div body class="d-flex gap-3 flex-column overflow-auto">
+      <ng-container *ngFor="let item of showDataList">
+        <div
+          class="d-flex justify-content-between align-items-center border border-dashed p-5 min-w-lg-325px min-w-225px">
+          <div class="d-flex flex-column">
+            <span class="fs-2 fw-bolder">{{ item.title }}</span>
+            <span class="text-muted bolder">{{ item.time }}</span>
+          </div>
+          <button
+            (click)="openExceptionModal()"
+            class="btn btn-sm btn-danger rounded btn-rounded fajc gap-2">
+            {{ item.status }}
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </app-skin-card-standard>
+</ng-container>
+<!--  -->
+<ng-container *ngIf="mode === 'text'">
+  <ng-container *ngFor="let item of showDataList">
+    <div class="d-flex align-items-start justify-content-between mt-5">
+      <span class="fs-2 fw-bolder">{{ item.time }}</span>
+      <span class="fs-2 fw-bolder">{{ item.title }}</span>
+      <button
+        (click)="openExceptionModal()"
+        class="btn btn-sm btn-danger rounded btn-rounded fajc gap-2">
+        {{ item.status }}
+        <i class="fa-solid fa-circle-exclamation"></i>
+      </button>
+    </div>
+  </ng-container>
+</ng-container>

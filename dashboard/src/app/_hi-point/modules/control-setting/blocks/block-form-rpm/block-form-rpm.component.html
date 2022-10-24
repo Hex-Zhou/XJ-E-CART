@@ -1,0 +1,42 @@
+<app-skin-card-standard cardTitle="轉速設定">
+ <div toolbar>
+  <button hexBtnStyle feat="ctrlSave">儲存</button>
+ </div>
+ <div body class="d-flex">
+  <app-big-label labelText="轉速"></app-big-label>
+  <div class="d-flex flex-column gap-10 flex-grow-1">
+   <app-form-control
+    [ctrl]="{
+     type: 'number',
+     label: '輸入新設定值',
+     formGroup: form,
+     controlName: 'current',
+     numberParam: { oldLabel: '目前設定轉速', oldVal: 0 }
+    }"></app-form-control>
+   <app-form-control
+    [ctrl]="{
+     type: 'number',
+     label: '輸入新上限值',
+     formGroup: form,
+     controlName: 'max',
+     numberParam: { oldLabel: '目前轉速上限', oldVal: 0 }
+    }"></app-form-control>
+   <app-form-control
+    [ctrl]="{
+     type: 'number',
+     label: '輸入新下限值',
+     formGroup: form,
+     controlName: 'min',
+     numberParam: { oldLabel: '目前轉速下限', oldVal: 0 }
+    }"></app-form-control>
+   <app-form-control
+    [ctrl]="{
+     type: 'switch',
+     label: '是否開啟警報設定',
+     formGroup: form,
+     controlName: 'isOpen',
+     switchParam: { ms: 0 }
+    }"></app-form-control>
+  </div>
+ </div>
+</app-skin-card-standard>

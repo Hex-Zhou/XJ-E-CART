@@ -1,0 +1,32 @@
+<ng-container *ngIf="mode === 'center'">
+ <div class="d-flex flex-column flex-column-fluid overflow-hidden">
+  <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+   <a routerLink="/" class="mb-12 d-flex position-relative z-50">
+    <img alt="Logo" [src]="picList.hiPointLowLogo" class="h-60px" />
+    <div class="fs-1 text-myst fw-bolder text-justify">
+     環境感監測設備
+     <br />
+     暨影像平台
+    </div>
+   </a>
+   <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto position-relative z-50">
+    <router-outlet></router-outlet>
+   </div>
+   <img [src]="picList.login1" alt="" class="login_img_kid kid_left" />
+   <img [src]="picList.login2" alt="" class="login_img_kid kid_right" />
+  </div>
+ </div>
+</ng-container>
+<ng-container *ngIf="mode === 'end'">
+ <div class="d-flex flex-column flex-column-fluid overflow-hidden">
+  <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+   <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 ms-auto me-md-15 me-auto position-relative z-50">
+    <router-outlet></router-outlet>
+   </div>
+   <!-- <img [src]="picList.login1" alt="" class="login_img_kid kid_left" />
+      <img [src]="picList.login2" alt="" class="login_img_kid kid_right" /> -->
+   <img [src]="picList.SVGdemoLogin" alt="" class="login_img_kid kid_pic" />
+   <h1 class="title_zxc">WAS智慧遠端監控系統</h1>
+  </div>
+ </div>
+</ng-container>

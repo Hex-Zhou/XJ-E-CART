@@ -1,0 +1,51 @@
+/**
+* 功能:斷點
+*/
+$breakpoints: (
+ zero: 0,
+ i8: 375px,
+ sm: 576px,
+ md: 768px,
+ lg: 992px,
+ xl: 1200px,
+ xxl: 1400px,
+) !default;
+$i8: 375px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+$numbers: (
+ 100: 100%,
+ auto: auto,
+ 10px: 10px,
+ 20px: 20px,
+ 30px: 30px,
+ 40px: 40px,
+ 50px: 50px,
+ 60px: 60px,
+ 70px: 70px,
+ 80px: 80px,
+ 90px: 90px,
+ 100px: 100px,
+ 125px: 125px,
+ 150px: 150px,
+ 175px: 175px,
+ 200px: 200px,
+ 225px: 225px,
+ 250px: 250px,
+ 275px: 275px,
+ 300px: 300px,
+ 325px: 325px,
+ 350px: 350px,
+ 375px: 375px,
+ 400px: 400px,
+ 450px: 450px,
+ 500px: 500px,
+ 550px: 550px,
+ 600px: 600px,
+ 650px: 650px,
+ 700px: 700px,
+);

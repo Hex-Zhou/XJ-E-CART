@@ -1,0 +1,27 @@
+<div class="d-flex flex-column gap-5">
+  <app-skin-card-collapse cardTitle="SVG">
+    <div body class="d-flex gap-5 flex-wrap">
+      <ng-container *ngFor="let item of SVG">
+        <div class="card">
+          <div class="flex-column fajc bg-warning card-body border border-1 rounded rounded-3">
+            <span class="fs-2 fw-bolder">{{ item[0] }}</span>
+            <span [inlineSVG]="item[1]" class="svg-icon svg-icon-3x"></span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </app-skin-card-collapse>
+
+  <app-skin-card-collapse cardTitle="PIC">
+    <div body class="d-flex gap-5 flex-wrap">
+      <ng-container *ngFor="let item of PIC">
+        <div class="card">
+          <div class="flex-column fajc bg-warning card-body border border-1 rounded rounded-3">
+            <span class="fs-2 fw-bolder">{{ item[0] }}</span>
+            <img [src]="item[1]" alt="" class="w-100px h-100px" />
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </app-skin-card-collapse>
+</div>

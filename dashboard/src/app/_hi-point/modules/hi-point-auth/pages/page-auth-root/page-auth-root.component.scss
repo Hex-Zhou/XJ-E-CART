@@ -1,0 +1,46 @@
+@import "/src/assets/sass/_hi-point/rwd";
+.text-myst {
+ color: #52708f !important;
+}
+.text-justify {
+ text-align-last: justify;
+}
+.z-50 {
+ z-index: 50;
+}
+.login_img_kid {
+ position: absolute;
+ bottom: 0;
+ max-width: 100%;
+ &.kid_left {
+  left: 0;
+ }
+ &.kid_right {
+  right: 0;
+ }
+}
+.login_img_kid.kid_pic {
+ left: 0;
+ height: 130%;
+ width: 100%;
+ bottom: -135px;
+}
+.title_zxc {
+ z-index: 100;
+ font-weight: 800;
+ color: #1a4769;
+ position: absolute;
+ top: 50%;
+ left: 100px;
+ transform: translateY(50%);
+ font-size: 64px;
+ @include xxl {
+  font-size: 48px;
+ }
+ @include xl {
+  font-size: 36px;
+ }
+ @include lg {
+  display: none;
+ }
+}

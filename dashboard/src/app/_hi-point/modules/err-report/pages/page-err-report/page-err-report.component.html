@@ -1,0 +1,49 @@
+<div class="d-flex gap-5 flex-column">
+ <app-skin-card-standard extraBodyCSS="card-scroll">
+  <div body class="d-flex gap-5 flex-column flex-md-row">
+   <select class="form-select min-w-150px">
+    <option value="">選擇群組</option>
+   </select>
+   <select class="form-select min-w-150px">
+    <option value="">選擇設備</option>
+   </select>
+   <select class="form-select min-w-50px flex-grow-0">
+    <option value="">是否解除</option>
+   </select>
+   <button hexBtnStyle feat="search" color="primary" class="flex-grow-1">查詢</button>
+   <button hexBtnStyle feat="search" color="death" class="flex-grow-1">清除</button>
+  </div>
+ </app-skin-card-standard>
+ <app-skin-card-standard cardTitle="故障紀錄">
+  <div toolbar class="d-flex gap-3">
+   <nz-range-picker [nzShowTime]="true" [(ngModel)]="date"></nz-range-picker>
+   <button hexBtnStyle feat="toolBarPink">
+    <span [inlineSVG]="SVG.cloud1" class="svg-icon svg-icon-2x svg-icon-light"></span>
+    下載故障紀錄
+   </button>
+  </div>
+  <div body>
+   <hex-table>
+    <th th (click)="sort('time')" hexTH [mw]="150">警報時間</th>
+    <th th (click)="sort('content')" hexTH [mw]="150">警報內容</th>
+    <th th (click)="sort('nickname')" hexTH [mw]="150">設備別名</th>
+    <th th (click)="sort('group')" hexTH [mw]="150">設備群組</th>
+    <th th (click)="sort('name')" hexTH [mw]="150">設備名稱</th>
+    <th th (click)="sort('isOff')" hexTH [mw]="150">是否解除</th>
+    <tr tr *ngFor="let cell of showData; let i = index">
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.time" feat="time"></td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.content"></td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.nickname"></td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.group"></td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.name"></td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.isOff ? '是' : '否'"></td>
+    </tr>
+   </hex-table>
+   <hex-table-footer
+    (changeEvt)="updatePagination($event)"
+    [page]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize"></hex-table-footer>
+  </div>
+ </app-skin-card-standard>
+</div>

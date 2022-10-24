@@ -1,0 +1,27 @@
+@import "/src/assets/sass/_hi-point/rwd";
+#sensor-card-group-swiper-panel {
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    height: auto;
+    width: auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: start;
+  }
+}
+._fixed-width {
+  width: 400px;
+  @include md {
+    width: 280px;
+  }
+}
+
+.min-w-search {
+  min-width: 300px;
+  @include sm {
+    min-width: 200px;
+  }
+}

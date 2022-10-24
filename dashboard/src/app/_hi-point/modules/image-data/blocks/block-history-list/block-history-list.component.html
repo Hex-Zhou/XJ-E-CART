@@ -1,0 +1,49 @@
+<app-skin-card-standard cardTitle="歷史影像清單" extraToolBarCSS="w-lg-auto w-100">
+ <!-- 工具欄 -->
+ <div toolbar class="d-flex gap-3 w-100 overflow-auto flex-lg-row flex-column">
+  <button (click)="openModal()" hexBtnStyle feat="toolBarRed" class="w-lg-auto w-100">
+   <span [inlineSVG]="svgEnum.cloud1"></span>
+   下載縮時影像
+  </button>
+ </div>
+ <div body class="d-flex flex-column">
+  <!-- 影片清單 -->
+  <div class="list-panel w-100 mb-5">
+   <ng-container *ngFor="let item of showImgList">
+    <div class="img-panel">
+     <span [inlineSVG]="svgEnum.xMark" class="svg-icon fill-primary p-1 shadow-lg pointer x-icon"></span>
+     <img [src]="item" alt="" class="h-100 w-100" />
+    </div>
+   </ng-container>
+  </div>
+  <!-- 底部 -->
+  <div class="footer-panel d-flex justify-content-between w-100 flex-md-row flex-column gap-3">
+   <div class="d-flex justify-content-md-start justify-content-center">
+    <span>
+     目前 {{ currentPage * perPage + 1 }} 到
+     {{ (currentPage + 1) * perPage > allImgList.length ? allImgList.length : (currentPage + 1) * perPage }}
+     筆 ，共計 {{ allImgList.length }} 筆
+    </span>
+   </div>
+   <ul class="pagination">
+    <li (click)="changeShowPage(pageBatch - 1)" class="page-item previous">
+     <a class="page-link"><i class="previous"></i></a>
+    </li>
+    <!-- 最多一次5頁 第47頁 = 5*9+2 -->
+    <ng-container *ngFor="let page of [1, 2, 3, 4, 5]; let i = index">
+     <ng-container *ngIf="5 * pageBatch + i + 1 <= allPageList.length">
+      <li
+       (click)="changeCurrentPage(5 * pageBatch + i)"
+       class="page-item"
+       [class.active]="currentPage === 5 * pageBatch + i">
+       <a class="page-link">{{ 5 * pageBatch + i + 1 }}</a>
+      </li>
+     </ng-container>
+    </ng-container>
+    <li (click)="changeShowPage(pageBatch + 1)" class="page-item next">
+     <a class="page-link"><i class="next"></i></a>
+    </li>
+   </ul>
+  </div>
+ </div>
+</app-skin-card-standard>

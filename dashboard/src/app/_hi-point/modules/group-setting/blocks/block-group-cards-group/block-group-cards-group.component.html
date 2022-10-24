@@ -1,0 +1,6 @@
+<div class="panel d-flex gap-10 overflow-auto py-5">
+ <app-group-card-item svg="addCross" text="點擊新增群組"></app-group-card-item>
+ <ng-container *ngFor="let g of groups">
+  <app-group-card-item svg="yuBan" text="{{ g }}"></app-group-card-item>
+ </ng-container>
+</div>

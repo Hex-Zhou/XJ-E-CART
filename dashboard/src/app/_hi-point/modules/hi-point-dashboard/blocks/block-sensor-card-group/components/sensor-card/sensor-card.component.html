@@ -1,0 +1,103 @@
+<ng-container *ngIf="data">
+  <div class="card-body p-0 h-100 border rounded rounded-3 d-flex flex-column">
+    <div class="card-rounded h-275px w-100 bg-{{ color }}">
+      <div class="d-flex flex-stack px-9 pt-7">
+        <h3 class="ms-auto text-white fw-bolder fs-3">{{ data.title }}</h3>
+        <div class="ms-auto">
+          <button
+            type="button"
+            class="btn btn-sm btn-icon btn-color-white btn-active-white border-0 me-n3"
+            [ngClass]="'btn-active-color-' + color"
+            data-kt-menu-trigger="click"
+            data-kt-menu-placement="bottom-end"
+            data-kt-menu-flip="top-end">
+            <span
+              [inlineSVG]="'./assets/media/icons/duotune/general/gen024.svg'"
+              class="svg-icon svg-icon-2"></span>
+          </button>
+        </div>
+      </div>
+      <div class="d-flex text-center flex-column text-white pt-8">
+        <!-- <app-sensor-card-apex-chart [chartColor]="color" chartHeight="150px" [strokeColor]="'#fff'"></app-sensor-card-apex-chart> -->
+      </div>
+    </div>
+    <div
+      class="d-flex flex-column shadow-xs card-rounded mx-9 px-6 py-9 position-relative z-index-1 bg-white flex-grow-1"
+      [style.margin-top]="false ? '-60px' : '-180px'">
+      <div class="item-panel">
+        <ng-container
+          *ngTemplateOutlet="
+            itemLi;
+            context: { icon: svgList.sensorTemp, key: '溫度', unit: '°C', val: data.option?.temp }
+          "></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            itemLi;
+            context: {
+              icon: svgList.sensorHumidity,
+              key: '濕度',
+              unit: '%',
+              val: data.option?.humidity
+            }
+          "></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            itemLi;
+            context: { icon: svgList.sensorKW, key: '輻射通量', unit: 'kW', val: data.option?.kw }
+          "></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            itemLi;
+            context: {
+              icon: svgList.sensorPar,
+              key: '光合有效輻射',
+              unit: 'par',
+              val: data.option?.par
+            }
+          "></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            itemLi;
+            context: { icon: svgList.sensorLux, key: '照度', unit: 'lux', val: data.option?.lux }
+          "></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            itemLi;
+            context: {
+              icon: svgList.sensorSoil,
+              key: '土壤濕度',
+              unit: '%',
+              val: data.option?.soil
+            }
+          "></ng-container>
+      </div>
+      <div class="text-muted text-center flex-grow-1 d-flex align-items-end justify-content-center">
+        最後更新時間：-
+      </div>
+    </div>
+    <div class="fajc pt-5 mb-9">
+      <button class="btn btn-sm btn-primary p-1">詳細資訊</button>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #itemLi let-icon="icon" let-key="key" let-unit="unit" let-val="val">
+  <ng-container *ngIf="val">
+    <div class="d-flex align-items-center mb-6">
+      <div class="symbol symbol-45px w-40px me-5">
+        <span class="symbol-label bg-lighten">
+          <span [inlineSVG]="icon" class="svg-icon svg-icon-1"></span>
+        </span>
+      </div>
+      <div class="d-flex align-items-center flex-wrap w-100">
+        <div class="mb-1 pe-3 flex-grow-1">
+          <a href="#" class="fs-5 text-gray-800 text-hover-primary fw-bolder">{{ key }}</a>
+          <div class="text-gray-400 fw-bold fs-7">{{ unit }}</div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="fw-bolder fs-5 text-gray-800 pe-1">{{ val }}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

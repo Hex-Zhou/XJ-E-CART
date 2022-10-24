@@ -1,0 +1,54 @@
+@import "../rwd";
+@import "../../components/variables.custom";
+.DT_hex.DT_A {
+  .dataTables_filter {
+    color: $gray-500;
+    font-size: 14px;
+  }
+  input[type="search"] {
+    color: $gray-500;
+    border-color: $gray-500;
+  }
+  & + .DT_footer {
+    display: flex;
+    justify-content: space-between;
+    @include md {
+      flex-direction: column;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: space-between;
+      .dataTables_info {
+        color: #000;
+        padding: 0;
+      }
+      .dataTables_length {
+        select {
+          color: #000;
+        }
+        option {
+          color: #000;
+        }
+      }
+    }
+    .right {
+      .dataTables_paginate .paginate_button {
+        border: 1px solid #cdcdde !important;
+        border-radius: 6px;
+        color: #cdcdde !important;
+        &.disabled,
+        &:hover,
+        &:active {
+          color: #cdcdde !important;
+        }
+        &.current,
+        &.current:hover,
+        &:hover {
+          background: $primary !important;
+        }
+      }
+    }
+  }
+}

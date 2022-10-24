@@ -1,0 +1,79 @@
+<app-skin-card-standard cardTitle="開關設定">
+ <div toolbar>
+  <button hexBtnStyle feat="ctrlSave">儲存</button>
+ </div>
+ <div body class="d-flex flex-column gap-10">
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '壓縮機開關',
+    formGroup: form,
+    controlName: 'open1',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '壓縮機開關',
+    formGroup: form,
+    controlName: 'open2',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '冷卻開關',
+    formGroup: form,
+    controlName: 'open3',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '加濕開關',
+    formGroup: form,
+    controlName: 'open4',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: 'CO2開關',
+    formGroup: form,
+    controlName: 'open5',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: 'LED開關',
+    formGroup: form,
+    controlName: 'open6',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '震盪開關',
+    formGroup: form,
+    controlName: 'open7',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '外部警報開關',
+    formGroup: form,
+    controlName: 'open8',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '預留開關',
+    formGroup: form,
+    controlName: 'open9',
+    switchParam: { ms: 'auto', switchText: '啟動' }
+   }"></app-form-control>
+ </div>
+</app-skin-card-standard>

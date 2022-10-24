@@ -1,0 +1,19 @@
+// https://preview.keenthemes.com/html/metronic/docs/icons/duotune
+export type tyDuoTune =
+  | "abstract"
+  | "arrows"
+  | "art"
+  | "coding"
+  | "communication"
+  | "ecommerce"
+  | "electronics"
+  | "files"
+  | "finance"
+  | "general"
+  | "graphs"
+  | "layouts"
+  | "maps"
+  | "medicine"
+  | "social"
+  | "technology"
+  | "text";

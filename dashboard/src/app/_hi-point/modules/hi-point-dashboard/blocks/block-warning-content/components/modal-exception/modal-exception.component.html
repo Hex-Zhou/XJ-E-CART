@@ -1,0 +1,16 @@
+<div class="panel d-flex flex-column p-md-10 p-3">
+ <div class="except-modal-title text-center fs-2x fw-bolder">
+  {{ data.title }}
+ </div>
+ <div class="except-modal-content fs-3 fw-bolder mb-5">
+  <div class="text-primary w-100">原因</div>
+  <div class="w-100 ms-5 my-3">{{ data.reason_desc }}</div>
+ </div>
+ <div class="except-modal-content fs-3 fw-bolder mb-5">
+  <div class="text-primary w-100">排除方式</div>
+  <div class="w-100 ms-5 my-3"><span [innerHTML]="data.fix_desc"></span></div>
+ </div>
+ <div class="btn-panel text-center">
+  <button (click)="closeModal()" hexBtnStyle feat="modalFooter" color="danger">關閉</button>
+ </div>
+</div>

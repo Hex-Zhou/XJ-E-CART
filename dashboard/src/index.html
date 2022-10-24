@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>購物車後台測試</title>
+		<base href="/" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="./assets/media/logos/favicon.ico" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+		<!-- SPLASH SCREEN-->
+		<link rel="stylesheet" id="layout-styles-anchor" href="./assets/splash-screen.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<script type="module">
+			import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+			import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+			const firebaseConfig = {
+				apiKey: "AIzaSyC-qfUy6W1DI2GLk5cd-5Y0HDcbXMG03VA",
+				authDomain: "urgent-ab0f9.firebaseapp.com",
+				projectId: "urgent-ab0f9",
+				storageBucket: "urgent-ab0f9.appspot.com",
+				messagingSenderId: "967479893660",
+				appId: "1:967479893660:web:c6e9900e46f218c224d759",
+				measurementId: "G-5ZLPXZB8MS",
+			};
+			const app = initializeApp(firebaseConfig);
+			const analytics = getAnalytics(app);
+		</script>
+	</head>
+	<body root id="kt_body" class="mat-typography">
+		<div id="splash-screen" class="splash-screen">
+			<img src="./assets/media/logos/logo-1.svg" alt="Metronic logo" />
+			<span>Loading ...</span>
+		</div>
+	</body>
+</html>

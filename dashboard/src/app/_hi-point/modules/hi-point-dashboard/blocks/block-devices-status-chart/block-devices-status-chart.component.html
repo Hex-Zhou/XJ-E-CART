@@ -1,0 +1,35 @@
+<app-skin-card-standard cardTitle="設備運作狀況" extraBodyCSS="min-w-xl-500px min-w-auto">
+  <div body class="d-flex align-items-center justify-content-center flex-column flex-xl-row">
+    <div class="chart flex-grow-1 w-100">
+      <div #chartRef id="dashboard-donut-chart-device">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [yaxis]="chartOptions.yaxis"
+          [dataLabels]="chartOptions.dataLabels"
+          [stroke]="chartOptions.stroke"
+          [legend]="chartOptions.legend"
+          [fill]="chartOptions.fill"
+          [states]="chartOptions.states"
+          [tooltip]="chartOptions.tooltip"
+          [colors]="chartOptions.colors"
+          [markers]="chartOptions.markers"
+          [responsive]="chartOptions.responsive"
+          [plotOptions]="chartOptions.plotOptions"></apx-chart>
+      </div>
+    </div>
+    <div class="indicator-panel d-flex flex-row flex-xl-column gap-3">
+      <div
+        class="border border-dashed d-flex flex-column fw-bolder justify-content-center align-items-center py-3 px-10 rounded rounded-3">
+        <span class="fs-3x text-primary">08</span>
+        <span class="text-muted">正常</span>
+      </div>
+      <div
+        class="border border-dashed d-flex flex-column fw-bolder justify-content-center align-items-center py-3 px-10 rounded rounded-3">
+        <span class="fs-3x text-danger">02</span>
+        <span class="text-muted">異常</span>
+      </div>
+    </div>
+  </div>
+</app-skin-card-standard>

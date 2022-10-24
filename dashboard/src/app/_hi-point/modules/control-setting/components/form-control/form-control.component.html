@@ -1,0 +1,56 @@
+<ng-container *ngIf="ctrl.formGroup">
+  <div [formGroup]="ctrl.formGroup" class="d-flex flex-column flex-md-row gap-3">
+    <ng-container *ngIf="ctrl.type === 'number'">
+      <!-- 目前數字 舊數字-->
+      <div class="me-md-3 me-0 d-flex align-items-center flex-grow-1">
+        <label class="text-nowrap fs-3 fw-bolder me-3">
+          <span [innerHTML]="ctrl.numberParam?.oldLabel"></span>
+        </label>
+        <input
+          class="form-control"
+          type="number"
+          disabled
+          [value]="ctrl.numberParam?.oldVal || 0" />
+      </div>
+    </ng-container>
+    <!-- 自訂投影 標籤前 -->
+    <ng-container *ngIf="ctrl.isAttachContent">
+      <ng-content select="[before-label]"></ng-content>
+    </ng-container>
+    <div class="d-flex align-items-center flex-grow-1">
+      <!-- 共用標題 -->
+      <label class="text-nowrap fs-3 fw-bolder me-3">
+        <span [innerHTML]="ctrl.label"></span>
+      </label>
+      <!-- 自訂投影 標籤後 -->
+      <ng-container *ngIf="ctrl.isAttachContent">
+        <ng-content select="[after-label]"></ng-content>
+      </ng-container>
+      <!-- number input -->
+      <ng-container *ngIf="ctrl.type === 'number'">
+        <input
+          class="form-control"
+          type="number"
+          [max]="ctrl.numberParam?.max || 999999"
+          [min]="ctrl.numberParam?.min || -999999"
+          [step]="ctrl.numberParam?.step || 1"
+          [formControlName]="ctrl.controlName" />
+      </ng-container>
+      <!-- switch -->
+      <ng-container *ngIf="ctrl.type === 'switch'">
+        <label
+          class="form-check form-switch form-check-custom form-check-solid position-relative ms-md-{{
+            ctrl.switchParam?.ms || '0'
+          }} ms-auto">
+          <input
+            [formControlName]="ctrl.controlName"
+            type="checkbox"
+            class="form-check-input min-w-80px" />
+          <span class="position-absolute check-label text-light">
+            {{ ctrl.switchParam?.switchText || "已開啟" }}
+          </span>
+        </label>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

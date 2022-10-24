@@ -1,0 +1,18 @@
+<div class="card card-flush card-panel {{ extraCardCSS }}">
+  <ng-container *ngIf="cardTitle || cardSubtitle">
+    <div class="card-header pt-5">
+      <div class="card-title align-items-start flex-column">
+        <span *ngIf="cardTitle" class="fs-1 fw-bolder">{{ cardTitle }}</span>
+        <span *ngIf="cardSubtitle" class="text-gray-400 mt-1 fw-bolder fs-6">
+          {{ cardSubtitle }}
+        </span>
+      </div>
+      <div class="card-toolbar {{ extraToolBarCSS }}">
+        <ng-content select="[toolbar]"></ng-content>
+      </div>
+    </div>
+  </ng-container>
+  <div class="card-body {{ extraBodyCSS }} ">
+    <ng-content select="[body]"></ng-content>
+  </div>
+</div>

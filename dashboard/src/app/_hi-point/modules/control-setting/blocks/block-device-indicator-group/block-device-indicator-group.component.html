@@ -1,0 +1,48 @@
+<div class="panel overflow-auto">
+ <app-skin-card-standard extraCardCSS="h-100 min-w-lg-400px min-w-auto">
+  <div body class="d-flex justify-content-between flex-grow-1">
+   <div class="indicator-panel fajc flex-column gap-3 fw-bolder fs-3">
+    <span class="indicator-btn btn btn-primary btn-sm btn-rounded fw-bolder">
+     正常
+    </span>
+    <span>機台狀態</span>
+   </div>
+   <div class="indicator-panel fajc flex-column gap-3 fw-bolder fs-3">
+    <span class="indicator-btn btn btn-primary btn-sm btn-rounded fw-bolder">
+     連線
+    </span>
+    <span>連線狀態</span>
+   </div>
+   <div class="indicator-panel fajc flex-column gap-3 fw-bolder fs-3">
+    <span class="indicator-btn btn btn-danger btn-sm btn-rounded fw-bolder">
+     有異常發生
+    </span>
+    <span>警報狀態</span>
+   </div>
+  </div>
+ </app-skin-card-standard>
+ <app-skin-card-standard
+  extraCardCSS="h-100"
+  extraBodyCSS="h-100 min-w-lg-350px min-w-auto">
+  <div body class="d-flex justify-content-between align-items-center h-100">
+   <span class="fs-1 fw-bolder">是否啟用遠端控制</span>
+   <label
+    class="form-check form-switch form-check-custom form-check-solid position-relative">
+    <input
+     class="form-check-input min-w-100px form-control-lg"
+     type="checkbox"
+     value="1"
+     checked="checked" />
+    <span class="position-absolute check-label text-light">已啟用</span>
+   </label>
+  </div>
+ </app-skin-card-standard>
+ <app-skin-card-standard
+  extraCardCSS="h-100"
+  extraBodyCSS="h-100 min-w-lg-325px min-w-auto">
+  <div body class="d-flex justify-content-between align-items-center h-100">
+   <span class="fs-1 fw-bolder">已顯示6項設定</span>
+   <span hexBtnStyle color="success" feat="search">設定</span>
+  </div>
+ </app-skin-card-standard>
+</div>

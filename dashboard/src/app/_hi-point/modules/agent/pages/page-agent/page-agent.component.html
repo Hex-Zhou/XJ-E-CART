@@ -1,0 +1,62 @@
+<div class="d-flex gap-5 flex-column">
+ <app-skin-card-standard extraBodyCSS="card-scroll">
+  <div body class="d-flex gap-5 flex-column flex-md-row">
+   <input type="text" class="form-control min-w-150px" placeholder="請輸入關鍵字" />
+   <button hexBtnStyle feat="search" color="primary" class="flex-grow-1">查詢</button>
+   <button hexBtnStyle feat="search" color="death" class="flex-grow-1">清除</button>
+  </div>
+ </app-skin-card-standard>
+
+ <app-skin-card-standard cardTitle="代理商清單">
+  <div toolbar>
+   <button hexBtnStyle feat="toolBarPink" (click)="openAddModal()">
+    <span [inlineSVG]="getDuoTune('arrows', 87)" class="svg-icon svg-icon-2x svg-icon-light"></span>
+    新增代理商
+   </button>
+  </div>
+  <div body>
+   <hex-table>
+    <th th (click)="sort('id')" hexTH [mw]="150">代理商編號</th>
+    <th th (click)="sort('name')" hexTH [mw]="150">代理商名稱</th>
+    <th th (click)="sort('friend')" hexTH [mw]="150">聯絡人</th>
+    <th th (click)="sort('phone')" hexTH [mw]="150">聯絡電話</th>
+    <th th (click)="sort('email')" hexTH [mw]="200">聯絡信箱</th>
+    <th th (click)="sort('created_at')" hexTH [mw]="200">建立時間</th>
+    <th th (click)="sort('device_num')" hexTH [mw]="150">設備數量</th>
+    <th th hexTH [mw]="225">管理</th>
+    <tr tr *ngFor="let cell of showData; let i = index">
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.id">
+      <input [hidden]="!isEdit[i]" nz-input [(ngModel)]="cell.id" />
+     </td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.name">
+      <input [hidden]="!isEdit[i]" nz-input [(ngModel)]="cell.name" />
+     </td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.friend">
+      <input [hidden]="!isEdit[i]" nz-input [(ngModel)]="cell.friend" />
+     </td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.phone">
+      <input [hidden]="!isEdit[i]" nz-input [(ngModel)]="cell.phone" />
+     </td>
+     <td hexTD [isClear]="isEdit[i]" [val]="cell.email">
+      <input [hidden]="!isEdit[i]" nz-input [(ngModel)]="cell.email" />
+     </td>
+     <td hexTD [val]="cell.created_at"></td>
+     <td>
+      <span (click)="openDeviceModal()" hexTD feat="badge" [val]="cell.device_num"></span>
+     </td>
+     <td hexTD feat="buttons">
+      <button [hidden]="isEdit[i]" (click)="toggleIsEdit(i)">編輯</button>
+      <button [hidden]="isEdit[i]" (click)="delItem(i)">刪除</button>
+      <button [hidden]="!isEdit[i]" (click)="toggleIsEdit(i)">儲存</button>
+      <button [hidden]="!isEdit[i]" (click)="toggleIsEdit(i)">取消</button>
+     </td>
+    </tr>
+   </hex-table>
+   <hex-table-footer
+    (changeEvt)="updatePagination($event)"
+    [page]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="collectionSize"></hex-table-footer>
+  </div>
+ </app-skin-card-standard>
+</div>

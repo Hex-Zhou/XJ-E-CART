@@ -1,0 +1,47 @@
+<app-skin-card-standard cardTitle="LED設定">
+ <div toolbar>
+  <button hexBtnStyle feat="ctrlSave">儲存</button>
+ </div>
+ <div body class="d-flex flex-column gap-10">
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '總開關',
+    formGroup: form,
+    controlName: 'isOpen',
+    switchParam: { ms: 0 }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'number',
+    label: '輸入新設定值',
+    formGroup: form,
+    controlName: 'led01',
+    numberParam: { oldLabel: 'LED01目前亮度', oldVal: 80 }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'number',
+    label: '輸入新設定值',
+    formGroup: form,
+    controlName: 'led02',
+    numberParam: { oldLabel: 'LED02目前亮度', oldVal: 80 }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'number',
+    label: '輸入新設定值',
+    formGroup: form,
+    controlName: 'led03',
+    numberParam: { oldLabel: 'LED03目前亮度', oldVal: 80 }
+   }"></app-form-control>
+  <app-form-control
+   [ctrl]="{
+    type: 'number',
+    label: '輸入新設定值',
+    formGroup: form,
+    controlName: 'led04',
+    numberParam: { oldLabel: 'LED04目前亮度', oldVal: 80 }
+   }"></app-form-control>
+ </div>
+</app-skin-card-standard>

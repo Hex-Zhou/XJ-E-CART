@@ -1,0 +1,126 @@
+@import "var";
+@import "../components/variables.custom";
+.pointer {
+ cursor: pointer;
+}
+.fajc {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.fajb {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.fajss {
+ display: flex;
+ align-items: start;
+ justify-content: start;
+}
+.fajce {
+ display: flex;
+ align-items: center;
+ justify-content: end;
+}
+.fajcs {
+ display: flex;
+ align-items: center;
+ justify-content: start;
+}
+.form-control-icon {
+ position: absolute;
+ top: 50%;
+ right: 0px;
+ transform: translateY(-50%);
+ margin-right: 1rem;
+ cursor: pointer;
+}
+.btn-rounded {
+ border-radius: 32px !important;
+}
+.btn-death {
+ background-color: #d3d3d3 !important;
+ color: #fff !important;
+}
+.btn-pink {
+ background-color: #fd79a8 !important;
+ color: #fff !important;
+}
+@each $key, $value in $numbers {
+ .max-h-#{$key} {
+  max-height: $value !important ;
+ }
+ .max-w-#{$key} {
+  max-width: $value !important;
+ }
+ .min-h-#{$key} {
+  min-height: $value !important;
+ }
+ .min-w-#{$key} {
+  min-width: $value !important;
+ }
+ // 遵照bootstrap 原則 螢幕 min-width 為基準
+ @each $bk, $bv in $breakpoints {
+  h-#{$bk}-#{$key} {
+   @media screen and (min-width: $bv) {
+    height: $value !important;
+   }
+  }
+  w-#{$bk}-#{$key} {
+   @media screen and (min-width: $bv) {
+    width: $value !important;
+   }
+  }
+  .max-h-#{$bk}-#{$key} {
+   @media screen and (min-width: $bv) {
+    max-height: $value !important;
+   }
+  }
+  .max-w-#{$bk}-#{$key} {
+   @media screen and (min-width: $bv) {
+    max-width: $value !important;
+   }
+  }
+  .min-h-#{$bk}-#{$key} {
+   @media screen and (min-width: $bv) {
+    min-height: $value !important;
+   }
+  }
+  .min-w-#{$bk}-#{$key} {
+   @media screen and (min-width: $bv) {
+    min-width: $value !important;
+   }
+  }
+ }
+}
+.fill-muted {
+ * {
+  fill: #a1a5b7;
+ }
+}
+.fill-light {
+ * {
+  fill: #fff;
+ }
+}
+.fill-primary {
+ * {
+  fill: $primary;
+ }
+}
+.fill-danger {
+ * {
+  fill: $danger;
+ }
+}
+.fill-success {
+ * {
+  fill: $success;
+ }
+}
+.fill-warning {
+ * {
+  fill: $warning;
+ }
+}

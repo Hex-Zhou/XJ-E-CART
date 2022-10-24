@@ -1,0 +1,36 @@
+<app-skin-card-standard cardTitle="設備清單">
+ <div body>
+  <hex-table>
+   <th th (click)="sort('id')" hexTH [mw]="225">設備編號</th>
+   <th th (click)="sort('nickname')" hexTH [mw]="225">設備別名</th>
+   <th th (click)="sort('group')" hexTH [mw]="225">設備群組</th>
+   <th th (click)="sort('name')" hexTH [mw]="225">設備名稱</th>
+   <th th hexTH [mw]="225">管理</th>
+   <tr tr *ngFor="let cell of showData; let i = index">
+    <td hexTD [val]="cell.id"></td>
+    <td [isClear]="isEdit[i]" hexTD [val]="cell.nickname">
+     <input [hidden]="!isEdit[i]" nz-input [(ngModel)]="cell.nickname" />
+    </td>
+    <td [isClear]="isEdit[i]" hexTD [val]="cell.group">
+     <nz-select [hidden]="!isEdit[i]" [(ngModel)]="cell.group">
+      <nz-option nzValue="Group02" nzLabel="Group02"></nz-option>
+      <nz-option nzValue="Group04" nzLabel="Group04"></nz-option>
+      <nz-option nzValue="Group03" nzLabel="Group03"></nz-option>
+     </nz-select>
+    </td>
+    <td hexTD [val]="cell.name"></td>
+    <td hexTD feat="buttons">
+     <button [hidden]="isEdit[i]" (click)="toggleIsEdit(i)">編輯</button>
+     <button [hidden]="isEdit[i]" (click)="delItem(i)">刪除</button>
+     <button [hidden]="!isEdit[i]" (click)="toggleIsEdit(i)">儲存</button>
+     <button [hidden]="!isEdit[i]" (click)="toggleIsEdit(i)">取消</button>
+    </td>
+   </tr>
+  </hex-table>
+  <hex-table-footer
+   (changeEvt)="updatePagination($event)"
+   [page]="page"
+   [pageSize]="pageSize"
+   [collectionSize]="collectionSize"></hex-table-footer>
+ </div>
+</app-skin-card-standard>

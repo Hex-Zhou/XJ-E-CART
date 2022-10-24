@@ -1,0 +1,14 @@
+<app-skin-card-standard
+  extraCardCSS="d-flex overflow-auto fs-3 fw-bolder px-10 pt-3"
+  extraBodyCSS="p-0">
+  <div body class="nav nav-stretch nav-line-tabs nav-line-tabs-2x flex-nowrap flex-grow-1">
+    <ng-container *ngFor="let item of navItemList">
+      <div (click)="clickEmit(item.id)" class="nav-item me-5">
+        <span
+          class="nav-link py-3 text-hover-primary text-active-primary hoverable text-primary-light pointer text-nowrap">
+          {{ item.title }}
+        </span>
+      </div>
+    </ng-container>
+  </div>
+</app-skin-card-standard>

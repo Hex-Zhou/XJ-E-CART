@@ -1,0 +1,82 @@
+<div class="modal-body">
+  <ng-container *ngIf="item">
+    <div class="panel" [formGroup]="form">
+      <ng-container [ngSwitch]="item.type">
+        <!-- 區塊類型 -->
+        <div *ngSwitchCase="'carousel'">
+          <div class="form-group">
+            <label class="form-label">HEADER</label>
+            <input type="text" class="form-control" formControlName="header" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">ROWS</label>
+            <input
+              type="number"
+              min="1"
+              max="4"
+              step="1"
+              class="form-control"
+              formControlName="rows" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">LAYOUT</label>
+            <select #selectControl class="form-control" formControlName="layout">
+              <option [value]="selectDefValue">請選擇...</option>
+              <option value="grid-4">grid-4</option>
+              <option value="grid-4-sm">grid-4-sm</option>
+              <option value="grid-5">grid-5</option>
+              <option value="horizontal">horizontal</option>
+            </select>
+          </div>
+        </div>
+        <!-- 區塊類型 -->
+        <div *ngSwitchCase="'categories'">
+          <div class="form-group">
+            <label class="form-label">HEADER</label>
+            <input type="text" class="form-control" formControlName="header" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">LAYOUT</label>
+            <select #selectControl class="form-control" formControlName="layout">
+              <option [value]="selectDefValue">請選擇...</option>
+              <option value="classic">classic</option>
+              <option value="compact">compact</option>
+            </select>
+          </div>
+        </div>
+        <!-- 區塊類型 -->
+        <div *ngSwitchCase="'features'">
+          <div class="form-group">
+            <label class="form-label">LAYOUT</label>
+            <select #selectControl class="form-control" formControlName="layout">
+              <option [value]="selectDefValue">請選擇...</option>
+              <option value="classic">classic</option>
+              <option value="boxed">boxed</option>
+            </select>
+          </div>
+        </div>
+        <!-- 區塊類型 -->
+        <div *ngSwitchCase="'posts'">
+          <div class="form-group">
+            <label class="form-label">HEADER</label>
+            <input type="text" class="form-control" formControlName="header" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">LAYOUT</label>
+            <select #selectControl class="form-control" formControlName="layout">
+              <option [value]="selectDefValue">請選擇...</option>
+              <option value="list-sm">list-sm</option>
+              <option value="grid-nl">grid-nl</option>
+            </select>
+          </div>
+        </div>
+        <!-- 區塊類型 -->
+        <div *ngSwitchDefault>無屬性可修改</div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+<div class="modal-footer">
+  <button (click)="deleteBlock()" class="btn btn-danger">刪除</button>
+  <button (click)="editBlock()" class="btn this-btn-primary">確定</button>
+</div>

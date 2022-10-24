@@ -1,0 +1,18 @@
+<app-skin-card-standard cardTitle="溫度設定">
+ <div toolbar>
+  <button hexBtnStyle feat="ctrlSave">儲存</button>
+ </div>
+ <div body class="d-flex flex-column gap-10">
+  <app-form-control
+   [ctrl]="{
+    type: 'switch',
+    label: '壓縮機狀態',
+    formGroup: form,
+    controlName: 'isOpen',
+    switchParam: { ms: 'auto', switchText: '啟動' },
+    isAttachContent: true
+   }">
+   <span after-label class="btn btn-sm btn-primary py-1 btn-rounded">正常</span>
+  </app-form-control>
+ </div>
+</app-skin-card-standard>

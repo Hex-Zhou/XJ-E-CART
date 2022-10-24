@@ -1,0 +1,91 @@
+<div
+  [ngClass]="headerContainerCssClasses"
+  class="d-flex align-items-stretch justify-content-between">
+  <!-- begin::Aside mobile toggle -->
+  <ng-container *ngIf="asideDisplay">
+    <div class="d-flex align-items-center d-lg-none ms-n3 me-1" title="Show aside menu">
+      <div
+        class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px"
+        id="kt_aside_mobile_toggle">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/abstract/abs015.svg'"
+          class="svg-icon svg-icon-1"></span>
+      </div>
+    </div>
+  </ng-container>
+  <!-- end::Aside mobile toggle -->
+
+  <!-- begin::Logo -->
+  <!-- 手機版的logo -->
+  <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+    <a routerLink="/dashboard" class="d-lg-none">
+      <img [src]="imgList.hiPointLowLogo" class="h-30px" />
+    </a>
+  </div>
+  <!-- end::Logo -->
+
+  <!-- begin::Wrapper -->
+  <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+    <ng-container *ngIf="headerLeft === 'menu'">
+      <div class="d-flex align-items-stretch" id="kt_header_nav">
+        <div
+          class="header-menu align-items-stretch"
+          data-kt-drawer="true"
+          data-kt-drawer-name="header-menu"
+          data-kt-drawer-activate="{default: true, lg: false}"
+          data-kt-drawer-overlay="true"
+          data-kt-drawer-width="{default:'200px', '300px': '250px'}"
+          data-kt-drawer-direction="end"
+          data-kt-drawer-toggle="#kt_header_menu_mobile_toggle"
+          data-kt-swapper="true"
+          data-kt-swapper-mode="prepend"
+          data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+          <!-- 中間展示區 -->
+          <div class="_desktop_left pointer">
+            <img
+              id="kt_aside_toggle"
+              data-kt-toggle="true"
+              data-kt-toggle-state="active"
+              data-kt-toggle-target="body"
+              data-kt-toggle-name="aside-minimize"
+              [src]="svgList.headerHam"
+              alt=""
+              class="menu_toggle_icon" />
+            <img
+              [routerLink]="routeList.home"
+              [src]="imgList.hiPointLowLogo"
+              alt="海伯特logo"
+              class="d-block hi_point_logo" />
+            <span [routerLink]="routeList.home" class="title">環境感監測設備暨影像平台</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <!-- begin::Navbar -->
+
+    <ng-container *ngIf="headerLeft === 'page-title'">
+      <div class="d-flex align-items-center" id="kt_header_nav">
+        <app-page-title
+          #ktPageTitle
+          class="page-title d-flex"
+          [ngClass]="pageTitleCssClasses"></app-page-title>
+      </div>
+    </ng-container>
+
+    <div class="d-flex align-items-stretch flex-shrink-0">
+      <div class="_desktop_right">
+        <img
+          [routerLink]="routeList.groupSetting"
+          [src]="svgList.fsMagnifyingGlass"
+          alt="群組設定"
+          class="gay-icon" />
+        <img [src]="svgList.headerAvatar" alt="你的頭像" class="gay-icon" />
+        <img [src]="svgList.headerBell" alt="小鈴鐺" class="gay-icon" />
+        <button (click)="logout()" class="btn btn-primary btn-sm px-5 btn-rounded w-90px">
+          登出
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- end::Wrapper -->
+</div>

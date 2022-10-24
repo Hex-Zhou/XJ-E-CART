@@ -1,0 +1,25 @@
+.nav-list {
+	span {
+		cursor: pointer;
+	}
+	.btn-box {
+	}
+}
+.x-item {
+	&:hover {
+		.x {
+			visibility: visible;
+		}
+	}
+	position: relative;
+	.x {
+		visibility: hidden;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background-color: #000;
+		color: #fff;
+		padding: 4px;
+		aspect-ratio: 1/1;
+	}
+}

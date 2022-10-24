@@ -1,0 +1,55 @@
+//
+// To make future updates easier consider overriding the global variables from _variables.bootstrap.scss and _variables.custom.scss for current demo in this file.
+// Note that this file is included first and variables defined in _variables.bootstrap.scss and _variables.custom.scss
+// are not accessible in this file but you can override any global variable as shown below:
+//
+
+$primary: if(isDarkMode(), #095d8c, #095d8c);
+$primary-active: if(isDarkMode(), #004c78, #03507d);
+$primary-light: if(isDarkMode(), #212e48, #f1faff);
+$primary-inverse: #ffffff;
+
+$success: if(isDarkMode(), #36ae7b, #36ae7b);
+$success-active: if(isDarkMode(), #14a66a, #19a56a);
+$success-light: if(isDarkMode(), #1c3238, #e8fff3);
+$success-inverse: #ffffff;
+
+$info: if(isDarkMode(), #8950fc, #7239ea);
+$info-active: if(isDarkMode(), #7337ee, #5014d0);
+$info-light: if(isDarkMode(), #2f264f, #f8f5ff);
+$info-inverse: #ffffff;
+
+$danger: if(isDarkMode(), #d35f68, #d35f68);
+$danger-active: if(isDarkMode(), #e63774, #c81f2d);
+$danger-light: if(isDarkMode(), #3a2434, #fff5f8);
+$danger-inverse: #ffffff;
+
+$warning: if(isDarkMode(), #ffa800, #ffc700);
+$warning-active: if(isDarkMode(), #ee9d01, #f1bc00);
+$warning-light: if(isDarkMode(), #392f28, #fff8dd);
+$warning-inverse: #ffffff;
+
+// $primary: if(isDarkMode(), #3699ff, #009ef7);
+// $primary-active: if(isDarkMode(), #187de4, #0095e8);
+// $primary-light: if(isDarkMode(), #212e48, #f1faff);
+// $primary-inverse: #ffffff;
+
+// $success: if(isDarkMode(), #1ec3bc, #1ec3bc);
+// $success-active: if(isDarkMode(), #0e8983, #0e8983);
+// $success-light: if(isDarkMode(), #1c3238, #e8fff3);
+// $success-inverse: #ffffff;
+
+// $info: if(isDarkMode(), #8950fc, #7239ea);
+// $info-active: if(isDarkMode(), #7337ee, #5014d0);
+// $info-light: if(isDarkMode(), #2f264f, #f8f5ff);
+// $info-inverse: #ffffff;
+
+// $danger: if(isDarkMode(), #fd79a8, #fd79a8);
+// $danger-active: if(isDarkMode(), #f95f95, #fd79a8);
+// $danger-light: if(isDarkMode(), #3a2434, #fff5f8);
+// $danger-inverse: #ffffff;
+
+// $warning: if(isDarkMode(), #ffa800, #ffc700);
+// $warning-active: if(isDarkMode(), #ee9d01, #f1bc00);
+// $warning-light: if(isDarkMode(), #392f28, #fff8dd);
+// $warning-inverse: #ffffff;

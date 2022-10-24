@@ -1,0 +1,31 @@
+._desktop_left {
+	margin-left: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	.menu_toggle_icon {
+		width: 30px;
+		aspect-ratio: 1/1;
+		cursor: pointer;
+	}
+	.hi_point_logo {
+		width: 60px;
+		aspect-ratio: 1.2/1;
+	}
+	.title {
+		font-size: 20px;
+		color: #52708f;
+		font-weight: bolder;
+	}
+}
+._desktop_right {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-right: 1rem;
+	.gay-icon {
+		cursor: pointer;
+		width: 30px;
+		aspect-ratio: 1/1;
+	}
+}

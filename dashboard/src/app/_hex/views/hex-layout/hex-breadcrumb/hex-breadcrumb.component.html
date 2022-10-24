@@ -1,0 +1,11 @@
+<div class="panel">
+	<ng-container *ngFor="let item of breadcrumbList; let i = index">
+		<ng-container *ngIf="i !== breadcrumbList.length - 1">
+			<span [routerLink]="item.link" class="text-secondary fs-3 fw-bolder pointer">{{ item.title }} {{ item.link }}</span>
+			<span class="text-secondary fs-3 fw-bolder">／</span>
+		</ng-container>
+		<ng-container *ngIf="i === breadcrumbList.length - 1">
+			<span routerLink="/{{ item.link }}" class="text-dark fs-3 fw-bolder pointer">{{ item.title }}</span>
+		</ng-container>
+	</ng-container>
+</div>

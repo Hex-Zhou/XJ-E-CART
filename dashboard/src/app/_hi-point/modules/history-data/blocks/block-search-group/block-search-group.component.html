@@ -1,0 +1,25 @@
+<app-skin-card-standard extraBodyCSS="card-scroll">
+ <div body>
+  <div class="d-flex gap-10 flex-column flex-md-row">
+   <select class="form-select min-w-150px">
+    <option value="">選擇群組</option>
+   </select>
+   <select class="form-select min-w-150px">
+    <option value="">選擇設備</option>
+   </select>
+   <button hexBtnStyle feat="search" color="success">加入比較</button>
+   <button hexBtnStyle feat="search" color="danger">清除</button>
+  </div>
+  <div
+   class="separator separator-dashed border-white border-dark my-10 w-100"></div>
+  <div class="tag-group d-flex gap-5">
+   <ng-container *ngFor="let item of tagList">
+    <div
+     class="btn btn-shitty btn-sm d-flex justify-content-between align-items-center px-3">
+     <span>{{ item }}</span>
+     <span class="svg-icon fill-light m-0 ms-5" [inlineSVG]="svg.xMark"></span>
+    </div>
+   </ng-container>
+  </div>
+ </div>
+</app-skin-card-standard>

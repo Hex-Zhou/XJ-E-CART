@@ -1,0 +1,18 @@
+<app-skin-card-standard cardTitle="警報類型" extraCardCSS="h-100 min-w-250px">
+  <div body class="d-flex justify-content-between flex-column h-100">
+    <ng-container *ngFor="let item of dataList">
+      <div class="d-flex flex-column justify-content-start align-items-center text-muted mb-3">
+        <div class="d-flex justify-content-between align-content-center w-100">
+          <span>{{ item.name }}</span>
+          <span>{{ item.val }}</span>
+        </div>
+        <div class="progress h-6px w-100">
+          <div
+            class="progress-bar"
+            [ngClass]="{ 'bg-danger': item.val >= 10, 'bg-primary': item.val < 10 }"
+            [style.width]="item.val * 5 + '%'"></div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</app-skin-card-standard>

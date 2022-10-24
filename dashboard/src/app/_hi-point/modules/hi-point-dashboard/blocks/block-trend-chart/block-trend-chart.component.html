@@ -1,0 +1,31 @@
+<app-skin-card-standard cardTitle="趨勢變化" extraToolBarCSS="flex-grow-1" extraBodyCSS="p-sm-3 p-0 overflow-auto">
+ <div toolbar class="flex-grow-1 d-flex justify-content-between flex-column flex-md-row gap-3">
+  <input
+   placeholder="溫度"
+   type="number"
+   [min]="0"
+   [max]="999"
+   [step]="1"
+   class="form-control w-auto py-0 ms-3 min-h-30px" />
+  <app-card-chart-nav></app-card-chart-nav>
+ </div>
+ <div body>
+  <div #chartRef class="mixed-widget-2-chart card-rounded-bottom bg-transparent">
+   <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [xaxis]="chartOptions.xaxis"
+    [yaxis]="chartOptions.yaxis"
+    [dataLabels]="chartOptions.dataLabels"
+    [stroke]="chartOptions.stroke"
+    [legend]="chartOptions.legend"
+    [fill]="chartOptions.fill"
+    [states]="chartOptions.states"
+    [tooltip]="chartOptions.tooltip"
+    [colors]="chartOptions.colors"
+    [markers]="chartOptions.markers"
+    [grid]="chartOptions.grid"
+    [plotOptions]="chartOptions.plotOptions"></apx-chart>
+  </div>
+ </div>
+</app-skin-card-standard>

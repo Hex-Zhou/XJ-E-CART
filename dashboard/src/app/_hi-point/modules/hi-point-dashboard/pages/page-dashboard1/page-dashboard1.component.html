@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="row1">
+    <app-block-tab-group></app-block-tab-group>
+  </div>
+  <div class="row2">
+    <app-skin-card-collapse cardTitle="警報資訊" bodyClass="dashboard-warning-content">
+      <ng-container body>
+        <app-block-devices-status-chart></app-block-devices-status-chart>
+        <app-block-warning-info></app-block-warning-info>
+        <app-block-warning-content></app-block-warning-content>
+      </ng-container>
+      <ng-container collapse-body>
+        <app-block-warning-content mode="text"></app-block-warning-content>
+      </ng-container>
+    </app-skin-card-collapse>
+  </div>
+  <div class="row3">
+    <app-block-sensor-card-group class="overflow-auto"></app-block-sensor-card-group>
+  </div>
+  <div class="row4">
+    <app-block-newest-photos></app-block-newest-photos>
+    <app-block-trend-chart></app-block-trend-chart>
+  </div>
+</div>

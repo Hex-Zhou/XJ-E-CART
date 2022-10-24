@@ -1,0 +1,21 @@
+@import "/src/assets/sass/_hi-point/rwd";
+.list-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 3rem;
+  justify-content: center;
+  @include sm {
+    grid-template-columns: repeat(auto-fill, 125px);
+    gap: 1rem;
+  }
+}
+.img-panel {
+  position: relative;
+  .x-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: white;
+    border-radius: 32px;
+  }
+}

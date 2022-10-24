@@ -1,0 +1,132 @@
+<app-skin-card-collapse cardTitle="導覽列編輯">
+	<div body>
+		<div class="d-flex gap-5 nav-list fs-3 fw-bolder">
+			<ng-container *ngFor="let nav of navLinks; let i = index">
+				<div class="btn-box x-item">
+					<button
+						(mouseenter)="setCurrNav(i)"
+						class="btn fs-3 fw-bolder"
+						nz-popover
+						nzPopoverTitle="編輯導覽項目"
+						nzPopoverTrigger="click"
+						[nzPopoverContent]="navTemp"
+						nzPopoverPlacement="top"
+						nz-dropdown
+						nzTrigger="hover"
+						[nzClickHide]="false"
+						[nzDropdownMenu]="menu">
+						{{ nav.label }}
+					</button>
+					<span *ngIf="i === navLinks.length - 1" (click)="addNav()" class="x fajc"><i class="fa-solid fa-plus"></i></span>
+				</div>
+				<!-- nzDropdownMenu -->
+				<nz-dropdown-menu #menu="nzDropdownMenu">
+					<ng-container *ngIf="navLinks[currNavIdx]?.menu && navLinks[currNavIdx]?.menu?.items">
+						<ul nz-menu>
+							<ng-container *ngFor="let item of navLinks[currNavIdx]!.menu!.items; let j = index">
+								<ng-container
+									[ngTemplateOutlet]="dropItem"
+									[ngTemplateOutletContext]="{ link: item, parent: navLinks[currNavIdx]!.menu! }"></ng-container>
+							</ng-container>
+							<li nz-menu-item>
+								<span class="text-gray-500" (click)="addNested(navLinks[currNavIdx]!.menu!)">新增第一層</span>
+							</li>
+							<!-- dropItem -->
+							<ng-template #dropItem let-link="link" let-parent="parent" let-idx="idx">
+								<li
+									*ngIf="!link.items"
+									(mouseenter)="setCurrNestedInfo(link, parent, idx)"
+									nz-menu-item
+									nz-popover
+									nzPopoverTitle="編輯連結"
+									nzPopoverTrigger="click"
+									[nzPopoverContent]="nestedTemp"
+									nzPopoverPlacement="top">
+									{{ link.label }}
+								</li>
+								<li
+									*ngIf="link.items"
+									(mouseenter)="setCurrNestedInfo(link, parent, idx)"
+									nz-submenu
+									nzTitle="{{ link.label }}"
+									nz-popover
+									nzPopoverTitle="編輯連結"
+									nzPopoverTrigger="click"
+									[nzPopoverContent]="nestedTemp"
+									nzPopoverPlacement="top">
+									<ul>
+										<ng-container *ngFor="let item of link.items; let k = index">
+											<ng-container
+												[ngTemplateOutlet]="dropItem"
+												[ngTemplateOutletContext]="{ link: item, parent: link, idx: k }"></ng-container>
+										</ng-container>
+										<li nz-menu-item (click)="addNested(link)">
+											<span class="text-gray-500">新增內部</span>
+										</li>
+									</ul>
+								</li>
+							</ng-template>
+							<!-- dropItem end-->
+						</ul>
+					</ng-container>
+				</nz-dropdown-menu>
+				<!-- nzDropdownMenu end -->
+			</ng-container>
+			<ng-container *ngIf="navLinks.length === 0">
+				<span (click)="addNav()" class="text-gray-500">請點擊新增...</span>
+			</ng-container>
+		</div>
+	</div>
+</app-skin-card-collapse>
+<!-- navTemp -->
+<ng-template #navTemp>
+	<div *ngIf="currNavIdx > -1">
+		<div class="form-group mb-2">
+			<label class="form-label">標題</label>
+			<input #labelInput type="text" class="form-control py-1" [(ngModel)]="currNavProp!.label" />
+		</div>
+		<div class="form-group mb-2">
+			<label class="form-label">網址</label>
+			<input #urlInput type="text" class="form-control py-1" [(ngModel)]="currNavProp!.url" />
+		</div>
+		<div class="mb-2 d-flex align-items-center gap-3">
+			<label class="form-label">下拉選單?</label>
+			<input
+				#externalInput
+				type="checkbox"
+				class="form-check"
+				[checked]="currNavProp!.menu"
+				[(ngModel)]="currNavProp!.menu" />
+		</div>
+		<div class="btn-group w-100">
+			<button (click)="deleteNav()" class="btn btn-danger btn-sm py-1">刪除</button>
+			<button (click)="updateNav()" class="btn btn-primary btn-sm py-1">更新</button>
+		</div>
+	</div>
+</ng-template>
+<!-- nestedTemp -->
+<ng-template #nestedTemp>
+	<div>
+		<div class="form-group mb-2">
+			<label class="form-label">標題</label>
+			<input #labelInput type="text" class="form-control py-1" [(ngModel)]="currNestedInfo!.nested.label" />
+		</div>
+		<div class="form-group mb-2">
+			<label class="form-label">網址</label>
+			<input #urlInput type="text" class="form-control py-1" [(ngModel)]="currNestedInfo!.nested.url" />
+		</div>
+		<div class="mb-2 d-flex align-items-center gap-3">
+			<label class="form-label">下拉選單?</label>
+			<input
+				#externalInput
+				type="checkbox"
+				class="form-check"
+				[checked]="currNestedInfo!.nested.items"
+				[(ngModel)]="currNestedInfo!.nested.items" />
+		</div>
+		<div class="btn-group w-100">
+			<button (click)="deleteNested()" class="btn btn-danger btn-sm py-1">刪除</button>
+			<button (click)="updateNested()" class="btn btn-primary btn-sm py-1">更新</button>
+		</div>
+	</div>
+</ng-template>

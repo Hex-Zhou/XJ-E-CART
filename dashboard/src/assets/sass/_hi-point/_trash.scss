@@ -1,0 +1,9 @@
+.dashboard-warning-content {
+  display: grid;
+  overflow: auto;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  @include xl {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="pointer mt-3 min-h-40px">
+  <div class="bg-dark text-light fs-4 p-2">Blog</div>
+  <div class="select-panel my-3 mx-3">
+    <label class="form-label">dropcartType</label>
+    <select #select1 class="form-control" (change)="update('dropcartType', select1.value)">
+      <ng-container *ngFor="let item of ['dropdown', 'offcanvas']">
+        <option [selected]="dropcartType === item" [value]="item">
+          {{ item }}
+        </option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="select-panel my-3 mx-3">
+    <label class="form-label">headerLayout</label>
+    <select #select2 class="form-control" (change)="update('headerLayout', select2.value)">
+      <ng-container *ngFor="let item of ['classic', 'compact']">
+        <option [selected]="headerLayout === item" [value]="item">
+          {{ item }}
+        </option>
+      </ng-container>
+    </select>
+  </div>
+</div>

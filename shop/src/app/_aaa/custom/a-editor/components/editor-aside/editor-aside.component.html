@@ -1,0 +1,53 @@
+<!-- 藍色小按鈕 -->
+<div (click)="openOffcanvas(content)" class="side-menu-toggle text-light p-3">
+  <i class="fas fa-file-pen fs-3"></i>
+  <span>設計</span>
+</div>
+<!-- 藍色按鈕召喚出來的側邊欄 -->
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">頁面元素編排</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="offcanvas.dismiss()"></button>
+  </div>
+  <div class="offcanvas-body p-0 shadow-lg">
+    <!--  -->
+    <div class="select-panel my-3 mx-3">
+      <label class="form-label">當前主題</label>
+      <select (change)="cssServ.switchCSS(themeSelector.value)" #themeSelector class="form-control">
+        <ng-container *ngFor="let theme of cssList">
+          <option [selected]="cssServ.isCurrCSS(theme)" [value]="theme.path">
+            {{ theme.title }}
+          </option>
+        </ng-container>
+      </select>
+    </div>
+    <!--  -->
+    <div class="select-panel my-3 mx-3">
+      <label class="form-label">編輯項目</label>
+      <select
+        (change)="viewServ.updateState(viewSelector.value)"
+        #viewSelector
+        class="form-control">
+        <ng-container *ngFor="let item of editableList">
+          <option [selected]="selectedView === item" [value]="item">
+            {{ item }}
+          </option>
+        </ng-container>
+      </select>
+    </div>
+    <!--  -->
+    <ng-container *ngIf="selectedView === 'home'">
+      <app-aside-home></app-aside-home>
+    </ng-container>
+    <ng-container *ngIf="selectedView === 'blog'">
+      <app-aside-blog></app-aside-blog>
+    </ng-container>
+    <ng-container *ngIf="selectedView === 'header'">
+      <app-aside-header></app-aside-header>
+    </ng-container>
+  </div>
+</ng-template>
